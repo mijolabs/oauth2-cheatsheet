@@ -30,7 +30,7 @@ An overview of the various OAuth2.0 authorization flows and their respective req
 | `scope` | _string_ | Optional |
 | `state` | _string_ | Recommended |
 
-[📖🆙](#table-of-contents)
+[📖](#-table-of-contents)
 
 ## 1b. Authorization Response
 ###### Response Parameters:
