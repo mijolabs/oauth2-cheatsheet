@@ -38,13 +38,15 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 | `content-type` | `application/x-www-form-urlencoded` |
 
 ###### Request Parameters:
-| Parameter | Value | Required |
-|---|---|---|
-| `response_type` | `code` | Required |
-| `client_id` | _string_ | Required | 
-| `redirect_uri` | _string_ | Optional |
-| `scope` | _string_ | Optional |
-| `state` | _string_ | Recommended |
+| Parameter | Value | Required | Comment |
+|---|---|---|---|
+| `response_type` | `code` | Required | |
+| `client_id` | _string_ | Required | |
+| `redirect_uri` | _string_ | Optional | |
+| `scope` | _string_ | Optional | |
+| `state` | _string_ | Recommended | |
+| `code_challenge` | _string_ | Optional | Required for [PKCE](https://tools.ietf.org/html/rfc7636). |
+| `code_challenge_method` | `plain` \| `S256` | Optional | Defaults to `plain` if not present in the request. |
 
 [🔝](#-contents)
 
@@ -70,12 +72,13 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 | `content-type` | `application/x-www-form-urlencoded` |
 
 ###### Request Parameters:
-| Parameter | Value | Required |
-|---|---|---|
-| `grant_type` | `authorization_code` | Required |
-| `code` | _string_ | Required | 
-| `redirect_uri` | _string_ | Required |
-| `client_id` | _string_ | Required |
+| Parameter | Value | Required | Comment |
+|---|---|---|---|
+| `grant_type` | `authorization_code` | Required | |
+| `code` | _string_ | Required | |
+| `redirect_uri` | _string_ | Required | |
+| `client_id` | _string_ | Required | |
+| `code_verifier` | _string_ | Optional | Required for [PKCE](https://tools.ietf.org/html/rfc7636). |
 
 [🔝](#-contents)
 
@@ -150,33 +153,9 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 
 ---
 
-# Common Token Response
-## Token Refresh Request
-###### Token Response Headers:
-| Parameter | Value |
-|---|---|
-| `cache-control` | `nostore` |
-| `pragma` | `no-cache` |
-
-###### Token Response Parameters:
-| Parameter | Value | Required | Comment |
-|---|---|---|---|
-| `access_token` | _string_ | Required | |
-| `token_type` | `bearer` \| `mac` | Required | |
-| `expires_in` | _integer_ | Recommended | The lifetime in seconds of the access token. |
-| `refresh_token` | _string_ | Optional | Not included in response to a [Client Credentials Grant token request](#client-credentials-token-request). |
-| `scope` | _string_ | Optional | |
-
-[🔝](#-contents)
-
-## Token Request: Error Responses
-[Token Request Error Responses](#token-request-error-responses)
-
-[🔝](#-contents)
-
----
-
 # Token Refresh
+
+## Token Refresh Request
 ###### HTTP Request:
 | Method | URI |
 | --- | --- |
@@ -199,6 +178,33 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 ## Token Response
 
 [Common Token Response](#common-token-response)
+
+[🔝](#-contents)
+
+---
+
+# Common Token Response
+
+###### Token Response Headers:
+| Parameter | Value |
+|---|---|
+| `cache-control` | `nostore` |
+| `pragma` | `no-cache` |
+
+###### Token Response Parameters:
+| Parameter | Value | Required | Comment |
+|---|---|---|---|
+| `access_token` | _string_ | Required | |
+| `token_type` | `bearer` \| `mac` | Required | |
+| `expires_in` | _integer_ | Recommended | The lifetime in seconds of the access token. |
+| `refresh_token` | _string_ | Optional | Not included in response to a [Client Credentials Grant token request](#client-credentials-token-request). |
+| `scope` | _string_ | Optional | |
+
+[🔝](#-contents)
+
+## Token Request: Error Responses
+
+[Token Request Error Responses](#token-request-error-responses)
 
 [🔝](#-contents)
 
