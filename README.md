@@ -28,17 +28,19 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 
 ## Authorization Code: Authorization Request
 ###### HTTP Request:
-| Method | URI |
 
+| Method | URI |
 | --- | --- |
 | `GET` | authorization_endpoint |
 
 ###### Request Headers:
+
 | Parameter | Value |
 |---|---|
 | `content-type` | `application/x-www-form-urlencoded` |
 
 ###### Request Parameters:
+
 | Parameter | Value | Required | Comment |
 |---|---|---|---|
 | `response_type` | `code` | Required | |
