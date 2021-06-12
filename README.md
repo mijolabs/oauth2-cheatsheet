@@ -5,9 +5,8 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 - [Authorization Code Grant](#authorization-code-grant)
     1. [Authorization Request](#authorization-code-authorization-request)
     2. [Authorization Response](#authorization-code-authorization-response)
-    3. [Authorization Endpoint: Error Responses](#authorization-endpoint-error-responses)
-    4. [Token Request](#authorization-code-token-request)
-    5. [Token Response](#common-token-response)
+    3. [Token Request](#authorization-code-token-request)
+    4. [Token Response](#common-token-response)
 - [Password Credentials Grant](password-credentials-grant)
     1. [Token Request](#password-credentials-token-request)
     2. [Token Response](#common-token-response)
@@ -17,7 +16,7 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
     3. [Token Request Error Responses](#token-request-error-responses)
 - [Token Refresh](#token-refresh)
     1. [Token Refresh Request](#token-refresh-request)
-    2. [Token Refresh Response](#token-refresh-response)
+    2. [Token Response](#common-token-response)
 - [Common Token Response](#common-token-response)
 - [Error Responses](#error-responses)
     - [Authorization Endpoint: Error Responses](#authorization-endpoint-error-responses)
@@ -80,13 +79,13 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 
 [🔝](#-contents)
 
-## Token Request: Error Responses
-[Token Request Error Responses](#token-request-error-responses)
+## Authorization Code: Token Response
+[Common Token Responses](#common-token-response)
 
 [🔝](#-contents)
 
-## Authorization Code: Token Response
-[Common Token Response](#common-token-response)
+## Token Endpoint: Error Responses
+[Token Endpoint: Error Responses](#token-endpoint-error-responses)
 
 [🔝](#-contents)
 
@@ -152,8 +151,8 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 ---
 
 # Common Token Response
+## Token Refresh Request
 ###### Token Response Headers:
-
 | Parameter | Value |
 |---|---|
 | `cache-control` | `nostore` |
@@ -171,7 +170,6 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 [🔝](#-contents)
 
 ## Token Request: Error Responses
-
 [Token Request Error Responses](#token-request-error-responses)
 
 [🔝](#-contents)
@@ -179,13 +177,35 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 ---
 
 # Token Refresh
+###### HTTP Request:
+| Method | URI |
+| --- | --- |
+| `POST` | token_endpoint |
 
+###### Request Headers:
+| Parameter | Value |
+|---|---|
+| `content-type` | `application/x-www-form-urlencoded` |
+
+###### Request Parameters:
+| Parameter | Value | Required |
+|---|---|---|
+| `grant_type` | `refresh_token` | Required |
+| `refresh_token` | _string_ | Required |
+| `scope` | _string_ | Optional |
+
+[🔝](#-contents)
+
+## Token Response
+
+[Common Token Response](#common-token-response)
 
 [🔝](#-contents)
 
 ---
 
 # Error Responses
+
 ###### Authorization Endpoint: Error Responses
 | Value | Description |
 |---|---|
