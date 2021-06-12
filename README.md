@@ -1,8 +1,9 @@
-# oauth2-reference
-An OAuth2.0 reference providing an overview of the different authorization flows and their respective parameters, as defined in RFC6749.
+# mijolabs/oauth2-reference
+An overview of the various OAuth2.0 authorization flows and their respective request and response parameters, as defined in [RFC6749](https://tools.ietf.org/html/rfc6749). It aims to provide a quick and easy reference for developers building clients. Please refer to the official RFC specification for more detailed information.
 
-Flows:
+## 📖 Table of Contents
 - [Authorization Code](#authorization-code-flow)
+  - [HTTP Request](#http-request)
 - [Password](#password-flow)
 - [Client Credentials](#client-credentials-flow)
 ---
@@ -28,6 +29,8 @@ Flows:
 | `redirect_uri` | _string_ | Optional |
 | `scope` | _string_ | Optional |
 | `state` | _string_ | Recommended |
+
+[📖🆙](#table-of-contents)
 
 ## 1b. Authorization Response
 ###### Response Parameters:
