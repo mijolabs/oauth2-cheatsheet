@@ -29,6 +29,7 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 ## Authorization Code: Authorization Request
 ###### HTTP Request:
 | Method | URI |
+
 | --- | --- |
 | `GET` | authorization_endpoint |
 
