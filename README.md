@@ -1,5 +1,5 @@
 # OAuth 2.0 Cheatsheet
-This is an overview of the various OAuth2.0 authorization flows and their respective request and response parameters, as defined in [RFC6749](https://tools.ietf.org/html/rfc6749). This reference aims to provide a quick and easy reference for developers working with OAuth clients. Please refer to the specification for more detailed information.
+This is an overview of the various OAuth2.0 authorization flows and their respective request and response parameters, as defined in [RFC6749](https://tools.ietf.org/html/rfc6749). This reference aims to provide a quick and easy reference for developers. Please refer to the specification for more detailed information.
 
 ## 📖 Contents
 - [Authorization Code Grant](#authorization-code-grant)
