@@ -6,17 +6,17 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
     1. [Authorization Request](#authorization-code-authorization-request)
     2. [Authorization Response](#authorization-code-authorization-response)
     3. [Token Request](#authorization-code-token-request)
-    4. [Token Response](#4-common-token-response)
-- [Password Credentials Grant](#2-password-credentials-grant)
+    4. [Token Response](#common-token-response)
+- [Password Credentials Grant](password-credentials-grant)
     1. [Token Request](#password-credentials-token-request)
-    2. [Token Response](#4-common-token-response)
-- [Client Credentials Grant](#3-client-credentials-grant)
+    2. [Token Response](#common-token-response)
+- [Client Credentials Grant](#client-credentials-grant)
     1. [Token Request](#client-credentials-token-request)
-    2. [Token Response](#4-common-token-response)
+    2. [Token Response](#common-token-response)
 - [Token Refresh](#token-refresh)
     1. [Token Refresh Request](#token-refresh-request)
     2. [Token Refresh Response](#token-refresh-response)
-- [Common Token Response](#4-common-token-response)
+- [Common Token Response](#common-token-response)
 - [Error Responses](#error-responses)
 
 ---
@@ -76,7 +76,8 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 
 [🔝](#-contents)
 
-## [Authorization Code Token Response](#4-common-token-response)
+## Authorization Code: Token Response
+[Common Token Response](#common-token-response)
 
 [🔝](#-contents)
 
@@ -105,17 +106,18 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 
 [🔝](#-contents)
 
-## [Password Credentials Token Response](#4-common-token-response)
+## Password Credentials: Token Response
+[Common Token Response](#common-token-response)
 
 [🔝](#-contents)
 
 ---
 
-# 3. Client Credentials Grant
+# Client Credentials Grant
 
 ---
 
-# 4. Common Token Response
+# Common Token Response
 ###### Token Response Headers:
 
 | Parameter | Value |
@@ -136,11 +138,11 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 
 ---
 
-# 4. Token Refresh
+# Token Refresh
 
 ---
 
-# 5. Error Responses
+# Error Responses
 ###### Response Parameters:
 | Value | Description |
 |---|---|
