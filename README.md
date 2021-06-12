@@ -122,6 +122,12 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 
 [🔝](#-contents)
 
+
+## Token Endpoint: Error Responses
+[Token Endpoint: Error Responses](#token-endpoint-error-responses)
+
+[🔝](#-contents)
+
 ---
 
 # Client Credentials Grant
@@ -148,6 +154,11 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 
 ## Client Credentials: Token Response
 [Common Token Response](#common-token-response)
+
+[🔝](#-contents)
+
+## Token Endpoint: Error Responses
+[Token Endpoint: Error Responses](#token-endpoint-error-responses)
 
 [🔝](#-contents)
 
@@ -178,6 +189,12 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 ## Token Response
 
 [Common Token Response](#common-token-response)
+
+[🔝](#-contents)
+
+
+## Token Endpoint: Error Responses
+[Token Endpoint: Error Responses](#token-endpoint-error-responses)
 
 [🔝](#-contents)
 
