@@ -2,22 +2,22 @@
 This is an overview of the various OAuth2.0 authorization flows and their respective request and response parameters, as defined in [RFC6749](https://tools.ietf.org/html/rfc6749). Please refer to that for more detailed information. This reference aims to provide a quick and easy reference for developers working with OAuth clients.
 
 ## 📖 Contents
-1. [Authorization Code Grant](#authorization-code-grant)
+- [Authorization Code Grant](#authorization-code-grant)
     1. [Authorization Request](#authorization-code-authorization-request)
     2. [Authorization Response](#authorization-code-authorization-response)
     3. [Token Request](#authorization-code-token-request)
-    4. [Token Response](#common-token-response)
-2. [Password Credentials Grant](#2-password-credentials-grant)
-    1. [Token Request](#password-credentials--token-request)
-    2. [Token Response](#common-token-response)
-3. [Client Credentials Grant](#3-client-credentials-grant)
+    4. [Token Response](#4-common-token-response)
+- [Password Credentials Grant](#2-password-credentials-grant)
+    1. [Token Request](#password-credentials-token-request)
+    2. [Token Response](#4-common-token-response)
+- [Client Credentials Grant](#3-client-credentials-grant)
     1. [Token Request](#client-credentials-token-request)
-    2. [Token Response](#common-token-response)
-4. [Token Refresh](#token-refresh)
+    2. [Token Response](#4-common-token-response)
+- [Token Refresh](#token-refresh)
     1. [Token Refresh Request](#token-refresh-request)
     2. [Token Refresh Response](#token-refresh-response)
-5. [Common Token Response](#common-token-response)
-6. [Error Responses](#error-responses)
+- [Common Token Response](#4-common-token-response)
+- [Error Responses](#error-responses)
 
 ---
 
@@ -76,15 +76,14 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 
 [🔝](#-contents)
 
-## [Common Token Response](#common-token-response)
-
+## [Authorization Code Token Response](#4-common-token-response)
 
 [🔝](#-contents)
 
 ---
 
 # 2. Password Credentials Grant
-## Password Grant: Token Request
+## Password Credentials: Token Request
 
 ###### HTTP Request:
 | Method | URI |
@@ -103,6 +102,10 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 | `username` | _string_ | Required |
 | `password` | _string_ | Required |
 | `scope` | _string_ | Optional |
+
+[🔝](#-contents)
+
+## [Password Credentials Token Response](#4-common-token-response)
 
 [🔝](#-contents)
 
