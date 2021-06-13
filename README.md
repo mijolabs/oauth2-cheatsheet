@@ -27,6 +27,7 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 # Authorization Code Grant
 
 ## Authorization Code: Authorization Request
+
 ###### HTTP Request:
 
 | Method | URI |
@@ -54,7 +55,9 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 [🔝](#-contents)
 
 ## Authorization Code: Authorization Response
+
 ###### Response Parameters:
+
 | Parameter | Value | Mandatory |
 |---|---|---|
 | `code` | _string_ | Required |
@@ -63,6 +66,7 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 [🔝](#-contents)
 
 ## Authorization Code: Token Request
+
 ###### HTTP Request:
 
 | Method | URI |
@@ -70,11 +74,13 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 | `POST` | token_endpoint |
 
 ###### Request Headers:
+
 | Parameter | Value |
 |---|---|
 | `content-type` | `application/x-www-form-urlencoded` |
 
 ###### Request Parameters:
+
 | Parameter | Value | Required | Comment |
 |---|---|---|---|
 | `grant_type` | `authorization_code` | Required | |
@@ -86,11 +92,13 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 [🔝](#-contents)
 
 ## Authorization Code: Token Response
+
 [Common Token Responses](#common-token-response)
 
 [🔝](#-contents)
 
 ## Token Endpoint: Error Responses
+
 [Token Endpoint: Error Responses](#token-endpoint-error-responses)
 
 [🔝](#-contents)
@@ -98,19 +106,23 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 ---
 
 # 2. Password Credentials Grant
+
 ## Password Credentials: Token Request
 
 ###### HTTP Request:
+
 | Method | URI |
 | --- | --- |
 | `POST` | token_endpoint |
 
 ###### Request Headers:
+
 | Parameter | Value |
 |---|---|
 | `content-type` | `application/x-www-form-urlencoded` |
 
 ###### Request Parameters:
+
 | Parameter | Value | Required |
 |---|---|---|
 | `grant_type` | `password` | Required |
@@ -121,12 +133,13 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 [🔝](#-contents)
 
 ## Password Credentials: Token Response
+
 [Common Token Response](#common-token-response)
 
 [🔝](#-contents)
 
-
 ## Token Endpoint: Error Responses
+
 [Token Endpoint: Error Responses](#token-endpoint-error-responses)
 
 [🔝](#-contents)
@@ -136,6 +149,7 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 # Client Credentials Grant
 
 ## Client Credentials: Token Request
+
 ###### HTTP Request:
 
 | Method | URI |
@@ -143,11 +157,13 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 | `POST` | token_endpoint |
 
 ###### Request Headers:
+
 | Parameter | Value |
 |---|---|
 | `content-type` | `application/x-www-form-urlencoded` |
 
 ###### Request Parameters:
+
 | Parameter | Value | Required |
 |---|---|---|
 | `grant_type` | `client_credentials` | Required |
@@ -156,11 +172,13 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 [🔝](#-contents)
 
 ## Client Credentials: Token Response
+
 [Common Token Response](#common-token-response)
 
 [🔝](#-contents)
 
 ## Token Endpoint: Error Responses
+
 [Token Endpoint: Error Responses](#token-endpoint-error-responses)
 
 [🔝](#-contents)
@@ -170,17 +188,21 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 # Token Refresh
 
 ## Token Refresh Request
+
 ###### HTTP Request:
+
 | Method | URI |
 | --- | --- |
 | `POST` | token_endpoint |
 
 ###### Request Headers:
+
 | Parameter | Value |
 |---|---|
 | `content-type` | `application/x-www-form-urlencoded` |
 
 ###### Request Parameters:
+
 | Parameter | Value | Required |
 |---|---|---|
 | `grant_type` | `refresh_token` | Required |
@@ -195,8 +217,8 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 
 [🔝](#-contents)
 
-
 ## Token Endpoint: Error Responses
+
 [Token Endpoint: Error Responses](#token-endpoint-error-responses)
 
 [🔝](#-contents)
@@ -206,12 +228,14 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 # Common Token Response
 
 ###### Token Response Headers:
+
 | Parameter | Value |
 |---|---|
 | `cache-control` | `nostore` |
 | `pragma` | `no-cache` |
 
 ###### Token Response Parameters:
+
 | Parameter | Value | Required | Comment |
 |---|---|---|---|
 | `access_token` | _string_ | Required | |
@@ -233,6 +257,7 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 # Error Responses
 
 ###### Authorization Endpoint: Error Responses
+
 | Value | Description |
 |---|---|
 | `unauthorized_client` | The client is not authorized to request an authorization code using this method. |
@@ -245,6 +270,7 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 [🔝](#-contents)
 
 ###### Token Endpoint: Error Responses
+
 | Value | Description |
 |---|---|
 | `invalid_request` | The request is missing a required parameter, includes an unsupported parameter value (other than grant type), repeats a parameter, includes multiple credentials, utilizes more than one mechanism for authenticating the client, or is otherwise malformed. |
