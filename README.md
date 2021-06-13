@@ -13,7 +13,6 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 - [Client Credentials Grant](#client-credentials-grant)
     1. [Token Request](#client-credentials-token-request)
     2. [Token Response](#common-token-response)
-    3. [Token Request Error Responses](#token-request-error-responses)
 - [Token Refresh](#token-refresh)
     1. [Token Refresh Request](#token-refresh-request)
     2. [Token Response](#common-token-response)
