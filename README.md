@@ -19,7 +19,6 @@ This [repository](https://github.com/mijolabs/oauth2-cheatsheet) automatically g
     1. [Token Refresh Request](#token-refresh-request)
     2. [Token Response](#common-token-response)
 - [Common Token Response](#common-token-response)
-
 - [Error Responses](#error-responses)
     - [Authorization Endpoint: Error Responses](#authorization-endpoint-error-responses)
     - [Token Endpoint: Error Responses](#token-endpoint-error-responses)
