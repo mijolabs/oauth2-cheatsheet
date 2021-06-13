@@ -20,7 +20,8 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 - [Error Responses](#error-responses)
     - [Authorization Endpoint: Error Responses](#authorization-endpoint-error-responses)
     - [Token Endpoint: Error Responses](#token-endpoint-error-responses)
-
+- [Extensions](#extensions)
+    - [PKCE](#pkce)
 ---
 
 # Authorization Code Grant
@@ -48,8 +49,8 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 | `redirect_uri` | _string_ | Optional | |
 | `scope` | _string_ | Optional | |
 | `state` | _string_ | Recommended | |
-| `code_challenge` | _string_ | Optional | Required for [PKCE](https://tools.ietf.org/html/rfc7636). |
-| `code_challenge_method` | `plain` \| `S256` | Optional | Defaults to `plain` if not present in the request. |
+| `code_challenge` | _string_ | Optional | Required for [PKCE](#pkce). |
+| `code_challenge_method` | `plain`\|`S256` | Optional | Optional when using PKCE. Defaults to `plain` if not present in the request but `S256` strongly recommended. |
 
 [🔝](#oauth-20-cheatsheet)
 
@@ -86,7 +87,7 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 | `code` | _string_ | Required | |
 | `redirect_uri` | _string_ | Required | |
 | `client_id` | _string_ | Required | |
-| `code_verifier` | _string_ | Optional | Required for [PKCE](https://tools.ietf.org/html/rfc7636). |
+| `code_verifier` | _string_ | Optional | Required for [PKCE](#pkce). |
 
 [🔝](#oauth-20-cheatsheet)
 
@@ -280,3 +281,70 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 | `invalid_scope` | The requested scope is invalid, unknown, malformed, or exceeds the scope granted by the resource owner. |
 
 [🔝](#oauth-20-cheatsheet)
+
+## Extensions
+
+###### PKCE
+
+[RFC7636](https://tools.ietf.org/html/rfc7636):
+    >OAuth 2.0 public clients utilizing the Authorization Code Grant are susceptible to the authorization code interception attack. This specification describes the attack as well as a technique to mitigate against the threat through the use of Proof Key for Code Exchange(PKCE, pronounced "pixy").
+
+The following parameters are added in the client's [Authorization Code Grant](#authorization-code-grant) requests:
+
+###### Authorization Code Grant: Authorization Request Parameters:
+
+| Parameter | Value | Required | Comment |
+|---|---|---|---|
+| `code_challenge` | _string_ | Optional | Required for [PKCE](#pkce). |
+| `code_challenge_method` | `plain`\|`S256` | Optional | Optional when using PKCE. Defaults to `plain` if not present in the request but `S256` strongly recommended. |
+
+###### Authorization Code Grant: Token Request Parameters:
+
+| Parameter | Value | Required | Comment |
+|---|---|---|---|
+| `code_verifier` | _string_ | Optional | Required for [PKCE](https://tools.ietf.org/html/rfc7636). |
+
+
+###### Client Creates a Code Verifier
+`code_verifier` = high-entropy cryptographic random STRING using the unreserved characters `A-Z` / `a-z` / `0-9` / `-` / `.` / `_` / `~`, with a minimum length of 43 characters and a maximum length of 128 characters.
+
+It is RECOMMENDED that the output of a suitable random number generator be used to create a 32-octet sequence. The octet sequence is then base64url-encoded to produce a 43-octet URL safe string to use as the code verifier.
+
+###### Client Creates the Code Challenge
+The client then creates a code challenge derived from the code verifier by using one of the following transformations on the code verifier:
+   `plain`
+      `code_challenge` = `code_verifier`
+
+   `S256`
+      `code_challenge` = `BASE64URL-ENCODE(SHA256(ASCII(code_verifier)))`
+
+    >If the client is capable of using `S256`, it MUST use `S256`, as `S256` is Mandatory To Implement (MTI) on the server. Clients are permitted to use `plain` only if they cannot support `S256` for some technical reason and know via out-of-band configuration that the server supports "plain". The `plain` transformation is for compatibility with existing deployments and for constrained environments that can't use the `S256` transformation.
+
+###### Generating code_verifier and code_challenge in Python
+```python
+import secrets
+import hashlib
+import base64
+
+def generate_code_verifier(self, length: int = 128) -> str:
+    if not 43 <= length <= 128:
+        raise ValueError("Parameter 'length' must verify '43 <= length <= 128'")
+    code_verifier = secrets.token_urlsafe(96)[:length]
+    return code_verifier
+
+def generate_code_challenge(self, code_verifier: str, code_challenge_method: str = 'S256') -> str:
+    if code_challenge_method == 'S256':
+        code_challenge = hashlib.sha256(code_verifier.encode('utf-8')).digest()
+        code_challenge = base64.urlsafe_b64decode(code_challenge)
+        code_challenge = code_challenge.decode('utf-8').rstrip('=')
+    elif code_challenge_method == 'plain':
+        code_challenge = code_verifier
+    return code_challenge
+
+code_verifier = generate_code_verifier()
+code_challenge = generate_code_challenge(code_verifier))
+```
+
+[🔝](#oauth-20-cheatsheet)
+
+---
