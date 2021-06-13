@@ -23,7 +23,7 @@ This [repository](https://github.com/mijolabs/oauth2-cheatsheet) automatically g
     - [Authorization Endpoint: Error Responses](#authorization-endpoint-error-responses)
     - [Token Endpoint: Error Responses](#token-endpoint-error-responses)
 - [Extensions](#extensions)
-    - [Proof Key for Code Exchange (PKCE)](#pkce)
+    - [Proof Key for Code Exchange (PKCE)](#proof-key-for-code-exchange-pkce)
 ---
 
 # Authorization Code Grant
@@ -286,7 +286,7 @@ This [repository](https://github.com/mijolabs/oauth2-cheatsheet) automatically g
 
 # Extensions
 
-## PKCE
+## Proof Key for Code Exchange (PKCE)
 
 [RFC7636](https://tools.ietf.org/html/rfc7636):
 >OAuth 2.0 public clients utilizing the Authorization Code Grant are susceptible to the authorization code interception attack. This specification describes the attack as well as a technique to mitigate against the threat through the use of Proof Key for Code Exchange (PKCE, pronounced "pixy").
