@@ -51,7 +51,7 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 | `code_challenge` | _string_ | Optional | Required for [PKCE](https://tools.ietf.org/html/rfc7636). |
 | `code_challenge_method` | `plain` \| `S256` | Optional | Defaults to `plain` if not present in the request. |
 
-[🔝](#oauth-2-0-cheatsheet)
+[🔝](#oauth-20-cheatsheet)
 
 ## Authorization Code: Authorization Response
 
@@ -62,7 +62,7 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 | `code` | _string_ | Required |
 | `state` | _string_ | Recommended |
 
-[🔝](#oauth-2-0-cheatsheet)
+[🔝](#oauth-20-cheatsheet)
 
 ## Authorization Code: Token Request
 
@@ -88,19 +88,19 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 | `client_id` | _string_ | Required | |
 | `code_verifier` | _string_ | Optional | Required for [PKCE](https://tools.ietf.org/html/rfc7636). |
 
-[🔝](#oauth-2-0-cheatsheet)
+[🔝](#oauth-20-cheatsheet)
 
 ## Authorization Code: Token Response
 
 [Common Token Responses](#common-token-response)
 
-[🔝](#oauth-2-0-cheatsheet)
+[🔝](#oauth-20-cheatsheet)
 
 ## Token Endpoint: Error Responses
 
 [Token Endpoint: Error Responses](#token-endpoint-error-responses)
 
-[🔝](#oauth-2-0-cheatsheet)
+[🔝](#oauth-20-cheatsheet)
 
 ---
 
@@ -129,19 +129,19 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 | `password` | _string_ | Required |
 | `scope` | _string_ | Optional |
 
-[🔝](#oauth-2-0-cheatsheet)
+[🔝](#oauth-20-cheatsheet)
 
 ## Password Credentials: Token Response
 
 [Common Token Response](#common-token-response)
 
-[🔝](#oauth-2-0-cheatsheet)
+[🔝](#oauth-20-cheatsheet)
 
 ## Token Endpoint: Error Responses
 
 [Token Endpoint: Error Responses](#token-endpoint-error-responses)
 
-[🔝](#oauth-2-0-cheatsheet)
+[🔝](#oauth-20-cheatsheet)
 
 ---
 
@@ -168,19 +168,19 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 | `grant_type` | `client_credentials` | Required |
 | `scope` | _string_ | Optional |
 
-[🔝](#oauth-2-0-cheatsheet)
+[🔝](#oauth-20-cheatsheet)
 
 ## Client Credentials: Token Response
 
 [Common Token Response](#common-token-response)
 
-[🔝](#oauth-2-0-cheatsheet)
+[🔝](#oauth-20-cheatsheet)
 
 ## Token Endpoint: Error Responses
 
 [Token Endpoint: Error Responses](#token-endpoint-error-responses)
 
-[🔝](#oauth-2-0-cheatsheet)
+[🔝](#oauth-20-cheatsheet)
 
 ---
 
@@ -208,19 +208,19 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 | `refresh_token` | _string_ | Required |
 | `scope` | _string_ | Optional |
 
-[🔝](#oauth-2-0-cheatsheet)
+[🔝](#oauth-20-cheatsheet)
 
 ## Token Response
 
 [Common Token Response](#common-token-response)
 
-[🔝](#oauth-2-0-cheatsheet)
+[🔝](#oauth-20-cheatsheet)
 
 ## Token Endpoint: Error Responses
 
 [Token Endpoint: Error Responses](#token-endpoint-error-responses)
 
-[🔝](#oauth-2-0-cheatsheet)
+[🔝](#oauth-20-cheatsheet)
 
 ---
 
@@ -243,13 +243,13 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 | `refresh_token` | _string_ | Optional | Not included in response to a [Client Credentials Grant token request](#client-credentials-token-request). |
 | `scope` | _string_ | Optional | |
 
-[🔝](#oauth-2-0-cheatsheet)
+[🔝](#oauth-20-cheatsheet)
 
 ## Token Request: Error Responses
 
 [Token Request Error Responses](#token-request-error-responses)
 
-[🔝](#oauth-2-0-cheatsheet)
+[🔝](#oauth-20-cheatsheet)
 
 ---
 
@@ -266,7 +266,7 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 | `server_error` | The authorization server encountered an unexpected condition that prevented it from fulfilling the request. (This error code is needed because a 500 Internal Server Error HTTP status code cannot be returned to the client via an HTTP redirect.) |
 | `temporarily_unavailable` | The authorization server is currently unable to handle the request due to a temporary overloading or maintenance of the server.  (This error code is needed because a 503 Service Unavailable HTTP status code cannot be returned to the client via an HTTP redirect.) |
 
-[🔝](#oauth-2-0-cheatsheet)
+[🔝](#oauth-20-cheatsheet)
 
 ###### Token Endpoint: Error Responses
 
@@ -279,4 +279,4 @@ This is an overview of the various OAuth2.0 authorization flows and their respec
 | `unsupported_grant_type` | The authorization grant type is not supported by the authorization server. |
 | `invalid_scope` | The requested scope is invalid, unknown, malformed, or exceeds the scope granted by the resource owner. |
 
-[🔝](#oauth-2-0-cheatsheet)
+[🔝](#oauth-20-cheatsheet)
