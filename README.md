@@ -291,19 +291,6 @@ This [repository](https://github.com/mijolabs/oauth2-cheatsheet) automatically g
 [RFC7636](https://tools.ietf.org/html/rfc7636):
 >OAuth 2.0 public clients utilizing the Authorization Code Grant are susceptible to the authorization code interception attack. This specification describes the attack as well as a technique to mitigate against the threat through the use of Proof Key for Code Exchange (PKCE, pronounced "pixy").
 
-###### Authorization Code Grant: Authorization Request Parameters:
-
-| Parameter | Value | Required | Comment |
-|---|---|---|---|
-| `code_challenge` | _string_ | Optional | Required for [PKCE](#pkce). |
-| `code_challenge_method` | `plain` \| `S256` | Optional | Optional when using PKCE. Defaults to `plain` if not present in the request but `S256` strongly recommended. |
-
-###### Authorization Code Grant: Token Request Parameters:
-
-| Parameter | Value | Required | Comment |
-|---|---|---|---|
-| `code_verifier` | _string_ | Optional | Required for [PKCE](https://tools.ietf.org/html/rfc7636). |
-
 ###### Client Creates a Code Verifier
 `code_verifier` = high-entropy cryptographic random STRING using the unreserved characters `A-Z` / `a-z` / `0-9` / `-` / `.` / `_` / `~`, with a minimum length of 43 characters and a maximum length of 128 characters.
 
@@ -345,6 +332,20 @@ def generate_code_challenge(self,
 code_verifier = generate_code_verifier()
 code_challenge = generate_code_challenge(code_verifier))
 ```
+
+###### Authorization Code Grant: Authorization Request Parameters:
+
+| Parameter | Value | Required | Comment |
+|---|---|---|---|
+| `code_challenge` | _string_ | Optional | Required for [PKCE](https://tools.ietf.org/html/rfc7636). |
+| `code_challenge_method` | `plain` \| `S256` | Optional | Optional when using PKCE. Defaults to `plain` if not present in the request but `S256` strongly recommended. |
+
+###### Authorization Code Grant: Token Request Parameters:
+
+| Parameter | Value | Required | Comment |
+|---|---|---|---|
+| `code_verifier` | _string_ | Optional | Required for [PKCE](https://tools.ietf.org/html/rfc7636). |
+
 
 [🔝](#oauth-20-cheatsheet)
 
