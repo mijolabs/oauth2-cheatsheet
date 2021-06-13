@@ -23,7 +23,7 @@ This [repository](https://github.com/mijolabs/oauth2-cheatsheet) automatically g
     - [Authorization Endpoint: Error Responses](#authorization-endpoint-error-responses)
     - [Token Endpoint: Error Responses](#token-endpoint-error-responses)
 - [Extensions](#extensions)
-    - [PKCE (Proof Key for Code Exchange)](#pkce)
+    - [Proof Key for Code Exchange (PKCE)](#pkce)
 ---
 
 # Authorization Code Grant
