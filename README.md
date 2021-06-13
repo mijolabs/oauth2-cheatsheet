@@ -289,7 +289,7 @@ This [repository](https://github.com/mijolabs/oauth2-cheatsheet) automatically g
 ###### PKCE
 
 [RFC7636](https://tools.ietf.org/html/rfc7636):
-    >OAuth 2.0 public clients utilizing the Authorization Code Grant are susceptible to the authorization code interception attack. This specification describes the attack as well as a technique to mitigate against the threat through the use of Proof Key for Code Exchange(PKCE, pronounced "pixy").
+>OAuth 2.0 public clients utilizing the Authorization Code Grant are susceptible to the authorization code interception attack. This specification describes the attack as well as a technique to mitigate against the threat through the use of Proof Key for Code Exchange(PKCE, pronounced "pixy").
 
 The following parameters are added in the client's [Authorization Code Grant](#authorization-code-grant) requests:
 
@@ -306,7 +306,6 @@ The following parameters are added in the client's [Authorization Code Grant](#a
 |---|---|---|---|
 | `code_verifier` | _string_ | Optional | Required for [PKCE](https://tools.ietf.org/html/rfc7636). |
 
-
 ###### Client Creates a Code Verifier
 `code_verifier` = high-entropy cryptographic random STRING using the unreserved characters `A-Z` / `a-z` / `0-9` / `-` / `.` / `_` / `~`, with a minimum length of 43 characters and a maximum length of 128 characters.
 
@@ -314,13 +313,11 @@ It is RECOMMENDED that the output of a suitable random number generator be used 
 
 ###### Client Creates the Code Challenge
 The client then creates a code challenge derived from the code verifier by using one of the following transformations on the code verifier:
-   `plain`
-      `code_challenge` = `code_verifier`
 
-   `S256`
-      `code_challenge` = `BASE64URL-ENCODE(SHA256(ASCII(code_verifier)))`
+| `plain` | `code_challenge` = `code_verifier` |
+| `S256`| `code_challenge` = `BASE64URL-ENCODE(SHA256(ASCII(code_verifier)))` |
 
-    >If the client is capable of using `S256`, it MUST use `S256`, as `S256` is Mandatory To Implement (MTI) on the server. Clients are permitted to use `plain` only if they cannot support `S256` for some technical reason and know via out-of-band configuration that the server supports "plain". The `plain` transformation is for compatibility with existing deployments and for constrained environments that can't use the `S256` transformation.
+>If the client is capable of using `S256`, it MUST use `S256`, as `S256` is Mandatory To Implement (MTI) on the server. Clients are permitted to use `plain` only if they cannot support `S256` for some technical reason and know via out-of-band configuration that the server supports "plain". The `plain` transformation is for compatibility with existing deployments and for constrained environments that can't use the `S256` transformation.
 
 ###### Generating code_verifier and code_challenge in Python
 ```python
