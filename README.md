@@ -289,16 +289,14 @@ This [repository](https://github.com/mijolabs/oauth2-cheatsheet) automatically g
 ###### PKCE
 
 [RFC7636](https://tools.ietf.org/html/rfc7636):
->OAuth 2.0 public clients utilizing the Authorization Code Grant are susceptible to the authorization code interception attack. This specification describes the attack as well as a technique to mitigate against the threat through the use of Proof Key for Code Exchange(PKCE, pronounced "pixy").
-
-The following parameters are added in the client's [Authorization Code Grant](#authorization-code-grant) requests:
+>OAuth 2.0 public clients utilizing the Authorization Code Grant are susceptible to the authorization code interception attack. This specification describes the attack as well as a technique to mitigate against the threat through the use of Proof Key for Code Exchange (PKCE, pronounced "pixy").
 
 ###### Authorization Code Grant: Authorization Request Parameters:
 
 | Parameter | Value | Required | Comment |
 |---|---|---|---|
 | `code_challenge` | _string_ | Optional | Required for [PKCE](#pkce). |
-| `code_challenge_method` | `plain`\|`S256` | Optional | Optional when using PKCE. Defaults to `plain` if not present in the request but `S256` strongly recommended. |
+| `code_challenge_method` | `plain` \| `S256` | Optional | Optional when using PKCE. Defaults to `plain` if not present in the request but `S256` strongly recommended. |
 
 ###### Authorization Code Grant: Token Request Parameters:
 
@@ -333,7 +331,9 @@ def generate_code_verifier(self, length: int = 128) -> str:
     code_verifier = secrets.token_urlsafe(96)[:length]
     return code_verifier
 
-def generate_code_challenge(self, code_verifier: str, code_challenge_method: str = 'S256') -> str:
+def generate_code_challenge(self,
+                            code_verifier: str,
+                            code_challenge_method: str = 'S256') -> str:
     if code_challenge_method == 'S256':
         code_challenge = hashlib.sha256(code_verifier.encode('utf-8')).digest()
         code_challenge = base64.urlsafe_b64decode(code_challenge)
