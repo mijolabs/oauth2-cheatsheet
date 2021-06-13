@@ -314,6 +314,8 @@ It is RECOMMENDED that the output of a suitable random number generator be used 
 ###### Client Creates the Code Challenge
 The client then creates a code challenge derived from the code verifier by using one of the following transformations on the code verifier:
 
+| Method | Transformation |
+| --- | --- |
 | `plain` | `code_challenge` = `code_verifier` |
 | `S256`| `code_challenge` = `BASE64URL-ENCODE(SHA256(ASCII(code_verifier)))` |
 
